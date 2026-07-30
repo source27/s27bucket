@@ -16,8 +16,9 @@ scoop install usagi
 
 ## Current packages
 
-- `usagi`: A simple 2D game engine for rapid prototyping with Lua. Install with `scoop install usagi`.
-- `usagi` source: upstream release from `brettchalupa/usagi`, Windows package `usagi.exe`.
+| Package | Description | Source | Windows package | Install |
+| --- | --- | --- | --- | --- |
+| `usagi` | A simple 2D game engine for rapid prototyping with Lua. | `brettchalupa/usagi` | `usagi.exe` | `scoop install usagi` |
 
 ## Update manifests locally
 
