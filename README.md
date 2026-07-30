@@ -14,15 +14,32 @@ scoop bucket add s27bucket https://github.com/source27/s27bucket.git
 scoop install usagi
 ```
 
-## Update manifest locally
+## Current packages
 
-This bucket includes a generator script that reads the latest GitHub release from `brettchalupa/usagi` and rewrites `bucket/usagi.json`.
+- `usagi`: A simple 2D game engine for rapid prototyping with Lua. Install with `scoop install usagi`.
+- `usagi` source: upstream release from `brettchalupa/usagi`, Windows package `usagi.exe`.
+
+## Update manifests locally
+
+This bucket includes a generic generator that reads package definitions from `scripts/packages.json` and rewrites manifests in `bucket/`.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\update-manifests.ps1
+```
+
+Update a single package:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\update-manifests.ps1 -Package usagi
+```
+
+The legacy single-package entrypoint still works:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\update-usagi.ps1
 ```
 
-After the manifest is updated, test it with:
+After a manifest is updated, test it with:
 
 ```powershell
 scoop install .\bucket\usagi.json
@@ -30,10 +47,12 @@ scoop install .\bucket\usagi.json
 
 ## Repository layout
 
-- `bucket/usagi.json`: Scoop manifest for `usagi`
-- `scripts/update-usagi.ps1`: manifest generator/updater
+- `bucket/*.json`: Scoop manifests
+- `scripts/packages.json`: package definitions for the generator
+- `scripts/update-manifests.ps1`: generic manifest generator/updater
+- `scripts/update-usagi.ps1`: compatibility wrapper for `usagi`
 - `.github/workflows/update-usagi.yml`: scheduled auto-update workflow
 
 ## Automation
 
-GitHub Actions runs the updater on a schedule and on manual dispatch. When a new upstream release is detected, it commits the refreshed manifest back to this repository.
+GitHub Actions runs the generic updater on a schedule and on manual dispatch. When any upstream release changes, it commits the refreshed manifests back to this repository.
