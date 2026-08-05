@@ -8,5 +8,26 @@
     "bin": "usagi.exe",
     "assetPattern": "*-windows-x86_64.zip",
     "autoupdateUrl": "https://github.com/brettchalupa/usagi/releases/download/v{version}/usagi-{version}-windows-x86_64.zip"
+  },
+  {
+    "name": "herdr",
+    "repository": "herdrdev/herdr",
+    "description": "The runtime your coding agents live on: always-on agent terminal workspace.",
+    "homepage": "https://herdr.dev",
+    "license": "Apache-2.0",
+    "bin": "herdr.exe",
+    "source": "preview-manifest",
+    "manifestUrl": "https://herdr.dev/preview.json",
+    "assetKey": "windows-x86_64",
+    "notes": [
+      "Windows builds are currently preview-only upstream.",
+      "Package tracks https://herdr.dev/preview.json (same channel as the official install.ps1)."
+    ],
+    "checkver": {
+      "url": "https://herdr.dev/preview.json",
+      "regex": "\"base_version\"\\s*:\\s*\"(?<base>[\\d.]+)\".*?\"build_id\"\\s*:\\s*\"(?<build>[^\"]+)\"",
+      "replace": "${base}-preview.${build}"
+    },
+    "autoupdateUrl": "https://github.com/herdrdev/herdr/releases/download/preview-$matchBuild/herdr-windows-x86_64.zip"
   }
 ]
