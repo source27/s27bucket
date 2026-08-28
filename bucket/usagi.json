@@ -1,12 +1,12 @@
 {
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "A simple 2D game engine for rapid prototyping with Lua.",
   "homepage": "https://github.com/brettchalupa/usagi",
   "license": "Unlicense",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/brettchalupa/usagi/releases/download/v1.3.0/usagi-1.3.0-windows-x86_64.zip",
-      "hash": "9d5eb42a96748990b3f1a171fb4237f3a00e44cca08d9a0d5fdd4256c9522670"
+      "url": "https://github.com/brettchalupa/usagi/releases/download/v1.3.1/usagi-1.3.1-windows-x86_64.zip",
+      "hash": "2ebff23a4651190f3dd74650b1dd57db0ef1e3be33f16c810c8aed75d992fcf2"
     }
   },
   "bin": "usagi.exe",
